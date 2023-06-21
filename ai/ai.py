@@ -20,8 +20,8 @@ class AI:
         self.available_paths = {}
 
         #this is silly needs to be done better
-        for enemy in enemies:
-            self.enemypaths[enemy]=["",0]
+        for i,enemy in enumerate(enemies):
+            self.enemypaths[i]=["",0]
 
     #path finding methods
     def najdi_sousedy(self,vertex:Rect,visited:list[Rect]=[])->list[Rect]:
@@ -60,11 +60,11 @@ class AI:
                 self.available_paths[pathid] = [self.available_paths[cesta].copy()]
                 q.put((soused,pathid))
 
-    def get_next_step(self,enemy:object):
+    def get_next_step(self,enemy_index):
         """Returns next step in the apropriet path for the enemy"""
-        pathid = self.enemypaths[enemy][0]
-        self.enemypaths[enemy][1] +=1
-        positionindex =self.enemypaths[enemy][1]
+        pathid = self.enemypaths[enemy_index][0]
+        self.enemypaths[enemy_index][1] +=1
+        positionindex =self.enemypaths[enemy_index][1]
         return self.available_paths[pathid][positionindex]
 
     #not working do not use!!
