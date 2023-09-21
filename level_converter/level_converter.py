@@ -85,7 +85,7 @@ def convert_level(level_difficulty: int)-> dict:
             logging.error(f"Level converter: Unknown color: {pixel}")
             print("Unknown color")
 
-
+    tiles["path"].append(tiles["end"][0])
     return tiles
    #    -----------------------------------------------------------------------------
    #    -----------------------------------------------------------------------------
